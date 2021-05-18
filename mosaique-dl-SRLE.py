@@ -1,22 +1,30 @@
 import time
+import wget
+import pretty_errors
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 #------------------------------------------------
 #settings for driver
 
+dlc = {"download.default_directory" : "./DLC", "savebrowsing.enabled" : "false"}
+chromeOptions = webdriver.ChromeOptions()
 chromeOptions = webdriver.ChromeOptions()
 chromeOptions.binary_location = r"/usr/bin/brave-browser-nightly"
-chromeOptions.add_argument('headless')
-chromeOptions.add_argument('window-size=1200x600')
+chromeOptions.add_argument('headleass')
+chromeOptions.add_argument('window-size=1920x1080')
+chromeOptions.add_argument('disable-extensions')
+chromeOptions.add_experimental_option('prefs', dlc)
+chromeOptions.add_experimental_option('excludeSwitches',['enable-logging'])
+#chromeOptions.add_argument('test-type')
 
 driverselector = './drivers/chromedriver'
 browser = webdriver.Chrome(driverselector, options=chromeOptions)
 
 #------------------------------------------------
-#list
+#working list
 
-linklist = [
+linkdb = [
    'https://store.steampowered.com/points/shop/app/1192640',
    'https://store.steampowered.com/points/shop/app/1299120',
    'https://store.steampowered.com/points/shop/app/1385730',
@@ -24,45 +32,12 @@ linklist = [
 ]
 
 #------------------------------------------------
-#vardb
+#code
 
-test_screenshot = browser.save_screenshot('./test.png')
-
-web_item = "/html/body/div[1]/div[7]/div[4]/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/div/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/img"
-
-
-#------------------------------------------------
-#script
-
-for items in linklist:
-  browser.get((len(linklist)))
-  time.sleep(6)
-  browser.find_elements_by_xpath(web_item)
-  print(items)
-
+for links in linkdb:
+  getlinks = browser.get(links)
+  browser.implicitly_wait(1)
+  ani_av = browser.find_elements_by_class_name('rewarditem_ImageAnimatedAvatar_2YbSw')
+  for items in ani_av:
+    print(items.get_attribut('src'), file=open('output.txt', 'a'))
 browser.quit()
-"""
-find_class = browser.find_elements_by_xpath('/html/body/div[1]/div[7]/div[4]/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div/div/div/div/div[2]/div/div/div[1]/div/div/div[2]/img')
-#browser.save_screenshot('./test.png')
-
-print(find_class)
-
-find_class.get_attribute('src')
-
-browser.quit()
-
-linklist
------------------------------------------------------------
-linkstorage = [
-   "https://store.steampowered.com/points/shop/app/1192640",
-   "https://store.steampowered.com/points/shop/app/1299120",
-   "https://store.steampowered.com/points/shop/app/1385730",
-   "https://store.steampowered.com/points/shop/app/1504020"
-]
-
-url = 'https://store.steampowered.com/points/shop/app/1192640'
-
-url1 = 'https://store.steampowered.com/points/shop/app/1192640/cluster/1'
-
-
-"""
