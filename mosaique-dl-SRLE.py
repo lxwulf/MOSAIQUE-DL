@@ -1,5 +1,4 @@
 import time
-import wget
 import pretty_errors
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -40,4 +39,5 @@ for links in linkdb:
   ani_av = browser.find_elements_by_class_name('rewarditem_ImageAnimatedAvatar_2YbSw')
   for items in ani_av:
     print(items.get_attribut('src'), file=open('output.txt', 'a'))
+    file = open('output.txt', 'r')
 browser.quit()

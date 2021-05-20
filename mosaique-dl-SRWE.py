@@ -1,6 +1,5 @@
 import os
 import time
-import wget
 import pretty_errors
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
