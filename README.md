@@ -33,7 +33,7 @@ You can do this in the chromium driver settings in the script (2nd Section after
 ```python
 chromeOptions.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser-Nightly\Application\brave.exe"
 ```
-The ``r``is imported, else it doesn't work. After that you can insert your own
+The ``r`` is imported, else it doesn't work. After that you can insert your own
 path to your browser executable.
 
 After that modification it should work when you type in your terminal the following command:
@@ -41,7 +41,7 @@ After that modification it should work when you type in your terminal the follow
 ```python
 python mosaique-dl-SBRE-xxx.py
 ```
-The ``xxx``specifiys the version you need for your operating system.
+The ``xxx`` specifiys the version you need for your operating system.
 
 | Name | Version               |
 |------|-----------------------|
