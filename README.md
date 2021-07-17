@@ -11,7 +11,7 @@ the first seconds I joked with myself, but then I thought "Why not?".
 ## Conclusion
 
 It was completely profitable! I learned alot about Python and also of
-course about Selenium. I think I would one or another Project in this
+course about Selenium. I think I would do one or another Project in this
 direction.
 
 ## Technician Documentation
